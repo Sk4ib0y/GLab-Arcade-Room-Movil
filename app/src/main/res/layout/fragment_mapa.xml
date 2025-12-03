@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/fondo"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:text="@string/menu_settings"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:textSize="40dp"
+            android:shadowColor="#00FFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:shadowColor="#00FFFF"
+            android:textSize="27dp"
+            android:text="¿Donde nos ubicamos?" />
+
+ <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:shadowColor="#00FFFF"
+            android:textSize="20dp"
+            android:text="Cliquea para alternar mapa y vista" />
+
+        <FrameLayout
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:id="@+id/fragmento"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:shadowColor="#00FFFF"
+            android:textSize="20dp"
+            android:text="aqui la direccion lol" />
+    </LinearLayout>
+</ScrollView>

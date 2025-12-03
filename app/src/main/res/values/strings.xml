@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GLab Arcade Room</string>
+    <string name="menu_home">Bienvenida</string>
+    <string name="menu_profile">Inicio de Sesión Administrador</string>
+    <string name="menu_settings">Mapa</string>
+    <string name="menu_consolas">Consolas</string>
+    <string name="menu_comida">Menu</string>
+    <string name="menu_videojuegos">Catalogo de Videojuegos</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
+    <string name="home_placeholder">Espacio para agregar ejercicios o ejemplos de la sección de inicio.</string>
+    <string name="profile_placeholder">Espacio para agregar ejercicios o ejemplos relacionados con el perfil.</string>
+    <string name="settings_placeholder">Espacio para agregar ejercicios o ejemplos de la sección de ajustes.</string>
+</resources>

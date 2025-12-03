@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:padding="8dp">
+
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:layout_height="250dp"
+            android:src="@drawable/glab"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00FFFF"
+            android:textSize="28sp"
+            android:shadowColor="#00FFFF"
+            android:shadowRadius="10"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:text="Bienvenido a GLAB Arcade Room" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:shadowColor="#00FFFF"
+            android:shadowRadius="8"
+            android:textColor="#00FFFF"
+            android:gravity="center"
+            android:text="Jugar nunca se habia sentido tan bien" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-black"
+            android:textSize="15sp"
+            android:shadowColor="#00FFFF"
+            android:shadowRadius="8"
+            android:textColor="#00FFFF"
+            android:gravity="center"
+            android:text="Haga click en el nav drawer para ver los módulos"/>
+
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fondo"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="275dp"
+        android:id="@+id/login"
+        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recuadros"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:text="Inicio de Sesion" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="start"
+            android:shadowRadius="10"
+            android:layout_marginStart="15dp"
+            android:text="Usuario" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/user"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Contraseña" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/contraseña"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:id="@+id/loginb"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Eres un nuevo administrador?\n¿Registrate!"
+            android:gravity="center"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:id="@+id/logintext"
+            android:textSize="13dp"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:shadowRadius="10"/>
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="275dp"
+        android:id="@+id/registro"
+            android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recuadros"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:text="Registro" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Clave" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/clave"/>
+        </LinearLayout>      <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Nombre" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/nombre"/>
+        </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Usuario" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/userregistro"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Contraseña" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/contraseñaregistro"/>
+        </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="#FF4081"
+            android:textSize="15dp"
+            android:textColor="#FF4081"
+            android:layout_gravity="left"
+            android:shadowRadius="10"
+            android:layout_marginLeft="15dp"
+            android:text="Confirmar\nContraseña" />
+        <EditText
+            android:layout_width="180dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="28dp"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:shadowRadius="10"
+            android:id="@+id/confircontraseña"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF"
+            android:id="@+id/registrob"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes cuenta?\n¡Inicia Sesión!"
+            android:gravity="center"
+            android:shadowColor="#FF4081"
+            android:textColor="#FF4081"
+            android:clickable="true"
+            android:id="@+id/registrotext"
+            android:textSize="13dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:shadowRadius="10"/>
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>
