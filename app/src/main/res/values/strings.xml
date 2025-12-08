@@ -11,4 +11,6 @@
     <string name="home_placeholder">Espacio para agregar ejercicios o ejemplos de la sección de inicio.</string>
     <string name="profile_placeholder">Espacio para agregar ejercicios o ejemplos relacionados con el perfil.</string>
     <string name="settings_placeholder">Espacio para agregar ejercicios o ejemplos de la sección de ajustes.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

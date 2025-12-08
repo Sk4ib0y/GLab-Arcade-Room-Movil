@@ -57,7 +57,23 @@ public class MainActivity extends AppCompatActivity {
             } else if (idElemento == R.id.nav_settings) {
                 fragmento = new MapaFragment();
                 titulo = getString(R.string.menu_settings);
-            } else {
+            }
+            else if(idElemento == R.id.nav_menucomida)
+            {
+                fragmento=new MenuFragment();
+                titulo=getString(R.string.menu_comida);
+            }
+            else if(idElemento == R.id.nav_consolas)
+            {
+                fragmento=new ConsolasFragment();
+                titulo=getString(R.string.menu_consolas);
+            }
+                    else if(idElemento == R.id.nav_videojuegos)
+            {
+                fragmento=new ConsolasFragment();
+                titulo=getString(R.string.menu_videojuegos);
+            }
+            else {
                 fragmento = new HomeFragment();
                 titulo = getString(R.string.menu_home);
             }
