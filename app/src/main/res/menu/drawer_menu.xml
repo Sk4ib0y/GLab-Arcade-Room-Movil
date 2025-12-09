@@ -18,6 +18,8 @@
     <item
         android:id="@+id/nav_videojuegos"
         android:title="@string/menu_videojuegos"/>
-
+    <item
+        android:id="@+id/nav_inventario"
+        android:title="@string/menu_inventario"/>
 
 </menu>

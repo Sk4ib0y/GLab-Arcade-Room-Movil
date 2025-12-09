@@ -20,7 +20,7 @@ public class ConsolasFragment extends Fragment implements View.OnClickListener, 
     ListView listita;
     ImageView mas;
     int icono[]={R.drawable.xbox};
-    String consola[]={"Xbox"}, jugadores[]={"2"};
+    String consola[]={"Xbox"}, jugadores[]={"2"}, precio[]={"50"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,7 +29,7 @@ public class ConsolasFragment extends Fragment implements View.OnClickListener, 
 
         listita=view.findViewById(R.id.listita);
         mas=view.findViewById(R.id.mas);
-        AdaptadorConsola adaptadorConsola= new AdaptadorConsola(requireContext(), consola, jugadores, icono, getLayoutInflater() );
+        AdaptadorConsola adaptadorConsola= new AdaptadorConsola(requireContext(), consola, jugadores, precio, icono, getLayoutInflater() );
         listita.setAdapter(adaptadorConsola);
         listita.setOnItemClickListener(this);
         mas.setOnClickListener(this);
@@ -50,6 +50,6 @@ public class ConsolasFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getContext(), "La consola es "+consola[position]+" pueden jugar "+jugadores[position]+" personas", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "La consola es "+consola[position]+" pueden jugar "+jugadores[position]+" personas"+ " y cuesta "+precio[position]+" por hora ", Toast.LENGTH_SHORT).show();
     }
 }

@@ -6,6 +6,7 @@
     <string name="menu_consolas">Consolas</string>
     <string name="menu_comida">Menu</string>
     <string name="menu_videojuegos">Catalogo de Videojuegos</string>
+    <string name="menu_inventario">Inventario</string>
     <string name="navigation_drawer_open">Abrir menú de navegación</string>
     <string name="navigation_drawer_close">Cerrar menú de navegación</string>
     <string name="home_placeholder">Espacio para agregar ejercicios o ejemplos de la sección de inicio.</string>

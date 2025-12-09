@@ -9,18 +9,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class AdaptadorConsola extends BaseAdapter {
+import org.w3c.dom.Text;
 
+public class AdaptadorInventario extends BaseAdapter
+{
     Context context;
-    String consola[], jugadores[], precio[];
+    String consola[], observaciones[], estado[];
     int imagencita[];
     LayoutInflater inflater;
 
-    public AdaptadorConsola(Context context, String[] consola, String[] jugadores, String[] precio, int[] imagencita, LayoutInflater inflater) {
+    public AdaptadorInventario(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, LayoutInflater inflater) {
         this.context = context;
         this.consola = consola;
-        this.jugadores = jugadores;
-        this.precio = precio;
+        this.observaciones = observaciones;
+        this.estado = estado;
         this.imagencita = imagencita;
         this.inflater = inflater;
     }
@@ -42,30 +44,27 @@ public class AdaptadorConsola extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.modeloconsola, null);
-
-        TextView precioo=convertView.findViewById(R.id.precio);
+        convertView=inflater.inflate(R.layout.modeloinventario, null);
+        TextView consolat=convertView.findViewById(R.id.texto);
+        TextView estadot=convertView.findViewById(R.id.estado);
+        TextView observaciont=convertView.findViewById(R.id.observaciones);
         ImageView imagen=convertView.findViewById(R.id.icono);
-        TextView nombre= convertView.findViewById(R.id.texto);
-        TextView njugadores=convertView.findViewById(R.id.jugadores);
         ImageView edit=convertView.findViewById(R.id.editar);
-        ImageView basura=convertView.findViewById(R.id.basura);
+        ImageView borrar=convertView.findViewById(R.id.basura);
 
         edit.setOnClickListener(v -> {
             Intent intent= new Intent(context, NoDisponible.class);
             context.startActivity(intent);
-                });
-
-        basura.setOnClickListener(v -> {
+        });
+        borrar.setOnClickListener(v -> {
             Intent intent= new Intent(context, NoDisponible.class);
             context.startActivity(intent);
-                });
+        });
 
+        consolat.setText(consola[position]);
+        estadot.setText(estado[position]);
+        observaciont.setText(observaciones[position]);
         imagen.setImageResource(imagencita[position]);
-        nombre.setText(consola[position]);
-        precioo.setText(precio[position]);
-        njugadores.setText(jugadores[position]);
-
         return convertView;
     }
 }

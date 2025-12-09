@@ -70,8 +70,14 @@ public class MainActivity extends AppCompatActivity {
             }
                     else if(idElemento == R.id.nav_videojuegos)
             {
-                fragmento=new ConsolasFragment();
+                fragmento=new VideojuegosFragment();
                 titulo=getString(R.string.menu_videojuegos);
+            }
+
+                    else if (idElemento==R.id.nav_inventario)
+            {
+                    fragmento=new InventarioFragment();
+                    titulo=getString(R.string.menu_inventario);
             }
             else {
                 fragmento = new HomeFragment();

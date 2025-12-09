@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:textSize="30dp"
-                android:text="Catalogo\nVideojuegos"
+                android:text="Inventario"
                 android:textColor="#00FFFF"
                 android:shadowRadius="10"
                 android:shadowColor="#00FFFF"
@@ -44,14 +44,12 @@
             android:shadowColor="#00FFFF"
             android:textStyle="bold"
             android:textSize="19dp"
-            android:layout_marginStart="225dp"
+            android:layout_marginStart="195dp"
             android:layout_marginTop="145dp"/>
         <ListView
             android:layout_width="match_parent"
             android:id="@+id/listita"
             android:layout_height="200dp"
             android:layout_marginTop="170dp"/>
-
-
     </FrameLayout>
 </ScrollView>
