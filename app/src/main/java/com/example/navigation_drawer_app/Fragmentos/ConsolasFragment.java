@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_app;
+package com.example.navigation_drawer_app.Fragmentos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.navigation_drawer_app.Adaptadores.AdaptadorConsola;
+import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.R;
 
 
 public class ConsolasFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -19,20 +25,32 @@ public class ConsolasFragment extends Fragment implements View.OnClickListener, 
 
     ListView listita;
     ImageView mas;
+    TextView añadir;
     int icono[]={R.drawable.xbox};
     String consola[]={"Xbox"}, jugadores[]={"2"}, precio[]={"50"};
+    SesionManager sesionManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_consolas, container, false);
 
+        añadir=view.findViewById(R.id.añadir);
         listita=view.findViewById(R.id.listita);
         mas=view.findViewById(R.id.mas);
         AdaptadorConsola adaptadorConsola= new AdaptadorConsola(requireContext(), consola, jugadores, precio, icono, getLayoutInflater() );
         listita.setAdapter(adaptadorConsola);
         listita.setOnItemClickListener(this);
         mas.setOnClickListener(this);
+        sesionManager=new SesionManager(requireContext());
+
+        boolean login=sesionManager.isAdmin();
+
+        if(!login)
+        {
+            mas.setVisibility(View.GONE);
+            añadir.setVisibility(View.GONE);
+        }
 
         return view;
     }

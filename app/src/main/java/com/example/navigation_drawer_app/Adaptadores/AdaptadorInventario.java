@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_app;
+package com.example.navigation_drawer_app.Adaptadores;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.R;
 
 public class AdaptadorInventario extends BaseAdapter
 {
@@ -17,6 +19,7 @@ public class AdaptadorInventario extends BaseAdapter
     String consola[], observaciones[], estado[];
     int imagencita[];
     LayoutInflater inflater;
+    SesionManager sesionManager;
 
     public AdaptadorInventario(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, LayoutInflater inflater) {
         this.context = context;
@@ -25,6 +28,7 @@ public class AdaptadorInventario extends BaseAdapter
         this.estado = estado;
         this.imagencita = imagencita;
         this.inflater = inflater;
+        this.sesionManager=new SesionManager(context);
     }
 
     @Override
@@ -45,6 +49,9 @@ public class AdaptadorInventario extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView=inflater.inflate(R.layout.modeloinventario, null);
+
+        boolean login=sesionManager.isAdmin();
+
         TextView consolat=convertView.findViewById(R.id.texto);
         TextView estadot=convertView.findViewById(R.id.estado);
         TextView observaciont=convertView.findViewById(R.id.observaciones);
@@ -52,15 +59,22 @@ public class AdaptadorInventario extends BaseAdapter
         ImageView edit=convertView.findViewById(R.id.editar);
         ImageView borrar=convertView.findViewById(R.id.basura);
 
-        edit.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-        });
-        borrar.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-        });
 
+        if(!login)
+        {
+            edit.setVisibility(View.GONE);
+            borrar.setVisibility(View.GONE);
+        }
+        else {
+            edit.setOnClickListener(v -> {
+                Intent intent = new Intent(context, NoDisponible.class);
+                context.startActivity(intent);
+            });
+            borrar.setOnClickListener(v -> {
+                Intent intent = new Intent(context, NoDisponible.class);
+                context.startActivity(intent);
+            });
+        }
         consolat.setText(consola[position]);
         estadot.setText(estado[position]);
         observaciont.setText(observaciones[position]);

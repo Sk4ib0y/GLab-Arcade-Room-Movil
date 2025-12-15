@@ -12,6 +12,13 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.navigation_drawer_app.Fragmentos.ConsolasFragment;
+import com.example.navigation_drawer_app.Fragmentos.HomeFragment;
+import com.example.navigation_drawer_app.Fragmentos.InventarioFragment;
+import com.example.navigation_drawer_app.Fragmentos.MapaFragment;
+import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
+import com.example.navigation_drawer_app.Fragmentos.ProfileFragment;
+import com.example.navigation_drawer_app.Fragmentos.VideojuegosFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 

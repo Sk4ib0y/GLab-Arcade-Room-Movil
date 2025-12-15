@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_app;
+package com.example.navigation_drawer_app.Adaptadores;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.R;
+
 public class AdaptadorVideojuego extends BaseAdapter
 {
     Context context;
     String videojuego[], genero[], plataforma[];
     int imagencita[];
     LayoutInflater inflater;
+    SesionManager sesionManager;
 
     public AdaptadorVideojuego(Context context, String[] videojuego, String[] genero, String[] plataforma, int[] imagencita, LayoutInflater inflater) {
         this.context = context;
@@ -23,6 +28,7 @@ public class AdaptadorVideojuego extends BaseAdapter
         this.plataforma = plataforma;
         this.imagencita = imagencita;
         this.inflater = inflater;
+        this.sesionManager=new SesionManager(context);
     }
 
     @Override
@@ -44,6 +50,8 @@ public class AdaptadorVideojuego extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView=inflater.inflate(R.layout.modelovideojuego, null);
 
+        boolean login=sesionManager.isAdmin();
+
         TextView nombre=convertView.findViewById(R.id.texto);
         TextView generot=convertView.findViewById(R.id.genero);
         TextView plataformat=convertView.findViewById(R.id.plataforma);
@@ -51,16 +59,24 @@ public class AdaptadorVideojuego extends BaseAdapter
         ImageView edit=convertView.findViewById(R.id.editar);
         ImageView basura=convertView.findViewById(R.id.basura);
 
-        edit.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-        });
 
-        basura.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-        });
+        if(!login)
+        {
+            edit.setVisibility(View.GONE);
+            basura.setVisibility(View.GONE);
+        }
+        else {
+            edit.setOnClickListener(v -> {
+                Intent intent = new Intent(context, NoDisponible.class);
+                context.startActivity(intent);
+            });
 
+            basura.setOnClickListener(v -> {
+                Intent intent = new Intent(context, NoDisponible.class);
+                context.startActivity(intent);
+            });
+
+        }
         nombre.setText(videojuego[position]);
         generot.setText(genero[position]);
         plataformat.setText(plataforma[position]);

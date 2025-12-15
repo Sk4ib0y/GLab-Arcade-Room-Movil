@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_app;
+package com.example.navigation_drawer_app.Fragmentos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.navigation_drawer_app.R;
 
 public class MapaFragment extends Fragment implements View.OnClickListener {
 

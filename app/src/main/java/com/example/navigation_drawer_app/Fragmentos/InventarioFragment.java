@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_app;
+package com.example.navigation_drawer_app.Fragmentos;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.navigation_drawer_app.Adaptadores.AdaptadorInventario;
+import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.R;
 
 
 public class InventarioFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
@@ -20,6 +26,8 @@ public class InventarioFragment extends Fragment implements AdapterView.OnItemCl
     String consola[]={"Xbox"}, estado[]={"Disponible"}, observacion[]={"No funciona control"};
     ImageView mas;
     ListView listita;
+    TextView añadir;
+    SesionManager sesionManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,11 +35,21 @@ public class InventarioFragment extends Fragment implements AdapterView.OnItemCl
         View view=inflater.inflate(R.layout.fragment_inventario, container, false);
 
         mas=view.findViewById(R.id.mas);
+        añadir=view.findViewById(R.id.añadir);
         listita=view.findViewById(R.id.listita);
         AdaptadorInventario adaptadorInventario= new AdaptadorInventario(requireContext(), consola, estado, observacion, imagen, getLayoutInflater());
         listita.setAdapter(adaptadorInventario);
         mas.setOnClickListener(this);
         listita.setOnItemClickListener(this);
+        sesionManager=new SesionManager(requireContext());
+
+        boolean login=sesionManager.isAdmin();
+
+        if (!login)
+        {
+         añadir.setVisibility(View.GONE);
+         mas.setVisibility(View.GONE);
+        }
 
 
         return view;
