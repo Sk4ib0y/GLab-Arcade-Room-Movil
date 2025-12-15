@@ -14,9 +14,9 @@ public class Base extends SQLiteOpenHelper {
     private static final String CREATE_CONSOLA =
             "CREATE TABLE consola (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "Consola TEXT NOT NULL," +
-                    "Estado TEXT NOT NULL," +
-                    "Observaciones TEXT" +
+                    "consola TEXT NOT NULL," +
+                    "estado TEXT NOT NULL," +
+                    "observaciones TEXT" +
                     ");";
 
     private static final String CREATE_VIDEOJUEGO =
@@ -58,7 +58,7 @@ public class Base extends SQLiteOpenHelper {
     private static final String CREATE_MENU =
             "CREATE TABLE menu (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "elemento TEXT NOT NULL," +
+                    "elemento TEXT NOT NULL UNIQUE," +
                     "precio REAL NOT NULL" +
                     ");";
 

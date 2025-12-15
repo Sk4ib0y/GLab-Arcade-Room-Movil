@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Edits.MenuEdits;
+import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
 import com.example.navigation_drawer_app.R;
 import com.example.navigation_drawer_app.Clases.SesionManager;
 
@@ -19,13 +21,15 @@ public class AdaptadorMenu extends BaseAdapter
     String nombre[], precio[];
     LayoutInflater layoutInflater;
     SesionManager sesionManager;
+    MenuFragment menuFragment;
 
-    public AdaptadorMenu(Context context, String[] nombre, String[] precio, LayoutInflater layoutInflater) {
+    public AdaptadorMenu(Context context, String[] nombre, String[] precio, LayoutInflater layoutInflater, MenuFragment menuFragment) {
         this.context = context;
         this.nombre = nombre;
         this.precio = precio;
         this.layoutInflater = layoutInflater;
         this.sesionManager = new SesionManager(context);
+        this.menuFragment=menuFragment;
     }
 
     @Override
@@ -66,16 +70,25 @@ public class AdaptadorMenu extends BaseAdapter
 
         else {
             editar.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
+                Intent intent = new Intent(context, MenuEdits.class);
+                intent.putExtra("producto",nombre[position]);
+                intent.putExtra("precio",precio[position]);
                 context.startActivity(intent);
             });
 
             basura.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
-                context.startActivity(intent);
+                menuFragment.itemSeleccionado=position;
+                menuFragment.toggleDeleteLayout();
             });
 
         }
+
+
         return convertView;
+    }
+    public void updateView(String[] nuevoElemento, String[] nuevoPrecio)
+    {
+        this.nombre=nuevoElemento;
+        this.precio=nuevoPrecio;
     }
 }

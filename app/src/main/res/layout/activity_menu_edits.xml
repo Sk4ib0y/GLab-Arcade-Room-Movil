@@ -7,7 +7,7 @@
     android:background="@drawable/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Altas.MenuAltas">
+    tools:context=".Edits.MenuEdits">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,23 +15,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/atras"
-        android:src="@drawable/atras"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/atras"
+            android:src="@drawable/atras"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="30dp"
-        android:text="Alta de Producto\nMenu"
-        android:textColor="#00FFFF"
-        android:shadowRadius="10"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:shadowColor="#00FFFF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:text="Editar Producto\nMenu"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
     </LinearLayout>
 
     <LinearLayout
@@ -42,17 +42,17 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:background="@drawable/recuadros">
-    <TextView
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:text="Producto"
-        android:layout_marginStart="20dp"
-        android:textColor="#00FFFF"
-        android:gravity="center_vertical"
-        android:shadowRadius="10"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:shadowColor="#00FFFF"/>
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:text="Producto"
+            android:layout_marginStart="20dp"
+            android:textColor="#00FFFF"
+            android:gravity="center_vertical"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
         <EditText
             android:layout_width="260dp"
             android:layout_marginTop="20dp"
@@ -63,16 +63,16 @@
             android:id="@+id/producto"/>
 
         <TextView
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:text="Precio"
-        android:textColor="#00FFFF"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:text="Precio"
+            android:textColor="#00FFFF"
             android:layout_marginStart="20dp"
-        android:gravity="center_vertical"
-        android:shadowRadius="10"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:shadowColor="#00FFFF"/>
+            android:gravity="center_vertical"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
         <EditText
             android:layout_marginTop="20dp"
             android:layout_width="260dp"
@@ -85,12 +85,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/botones"
-            android:text="Añadir Producto"
+            android:text="Editar Producto"
             android:textSize="28dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             app:backgroundTint="@null"
             android:textColor="#FFFFFF"
-            android:id="@+id/añadir"/>
+            android:id="@+id/editar"/>
     </LinearLayout>
 </LinearLayout>

@@ -62,4 +62,34 @@ public class MenuDAO
     }
 
 
+    public boolean eliminar(String elemento, float precio)
+    {
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+
+        int rows= db.delete("menu",
+                "elemento=? AND precio=?",
+                new String[]{elemento, String.valueOf(precio)}
+                );
+        return rows>0;
+    }
+
+    public boolean edit(String elementoViejo, String elementoNuevo, float precioNuevo)
+    {
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+
+        ContentValues contentValues= new ContentValues();
+
+        contentValues.put("elemento", elementoNuevo);
+        contentValues.put("precio", precioNuevo);
+
+        int rows=db.update("menu",
+                contentValues,
+                "elemento=?",
+                new String[]{elementoViejo}
+        );
+
+        return rows>0;
+    }
+
+
 }

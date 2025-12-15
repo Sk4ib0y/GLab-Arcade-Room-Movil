@@ -12,11 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation_Drawer_App">
         <activity
-            android:name=".Formularios.MenuAltas"
+            android:name=".Altas.MenuAltas"
             android:exported="false" />
         <activity
             android:name=".Actividades.NoDisponible"
             android:exported="false" />
+        <activity android:name=".Edits.MenuEdits"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
