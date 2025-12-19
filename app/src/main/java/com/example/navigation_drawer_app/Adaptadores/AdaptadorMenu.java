@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.FragmentActions;
 import com.example.navigation_drawer_app.Edits.MenuEdits;
 import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
 import com.example.navigation_drawer_app.R;
@@ -86,9 +86,11 @@ public class AdaptadorMenu extends BaseAdapter
 
         return convertView;
     }
-    public void updateView(String[] nuevoElemento, String[] nuevoPrecio)
+    public void updateMenu(String[] nuevoElemento, String[] nuevoPrecio)
     {
         this.nombre=nuevoElemento;
         this.precio=nuevoPrecio;
     }
+
+
 }

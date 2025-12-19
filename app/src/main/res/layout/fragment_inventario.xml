@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/fondo"
     tools:context=".Fragmentos.MenuFragment">
 
@@ -52,5 +53,51 @@
             android:id="@+id/listita"
             android:layout_height="200dp"
             android:layout_marginTop="170dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="200dp"
+            android:visibility="invisible"
+            android:id="@+id/deletelayout"
+            android:background="@drawable/advertencia">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="¿Estas seguro deseas eliminar la\nconsola?"
+                android:shadowRadius="10"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:textColor="#00FFFF"
+                android:shadowColor="#00FFFF"
+                android:textStyle="bold"
+                android:textSize="19dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="120dp"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar"
+                    android:background="@drawable/botones"
+                    app:backgroundTint="@null"
+                    android:id="@+id/cancelar"
+                    android:layout_marginStart="40dp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eliminar"
+                    android:background="@drawable/botones"
+                    app:backgroundTint="@null"
+                    android:id="@+id/eliminar"
+                    android:layout_marginStart="40dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+        </FrameLayout>
+
     </FrameLayout>
 </ScrollView>

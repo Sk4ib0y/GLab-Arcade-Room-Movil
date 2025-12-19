@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.navigation_drawer_app.Adaptadores.AdaptadorMenu;
+import com.example.navigation_drawer_app.Clases.FragmentActions;
 import com.example.navigation_drawer_app.Clases.MenuDAO;
 import com.example.navigation_drawer_app.Altas.MenuAltas;
 import com.example.navigation_drawer_app.R;
@@ -25,7 +26,7 @@ import com.example.navigation_drawer_app.Clases.SesionManager;
 import java.util.ArrayList;
 
 
-public class MenuFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class MenuFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener, FragmentActions {
 
     String[] elementos, precios;
     ListView listita;
@@ -34,6 +35,7 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
     FrameLayout deleteLayout;
     Button cancelar, eliminar;
     MenuDAO menuDAO;
+
     SesionManager sesionManager;
     AdaptadorMenu adaptadorMenu;
 
@@ -41,6 +43,7 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view=inflater.inflate(R.layout.fragment_menu,container, false);
         listita=view.findViewById(R.id.listita);
         mas=view.findViewById(R.id.mas);
@@ -57,11 +60,13 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
         mas.setOnClickListener(this);
         sesionManager=new SesionManager(requireContext());
         menuDAO=new MenuDAO(requireContext());
+
         elementos=new String[0];
         precios=new String[0];
+
         adaptadorMenu= new AdaptadorMenu(requireContext(), elementos, precios, getLayoutInflater(),this);
         listita.setAdapter(adaptadorMenu);
-        refreshList();
+        refreshMenu();
 
         boolean login=sesionManager.isAdmin();
 
@@ -103,7 +108,7 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
             {
                 Toast.makeText(requireContext(), "Elemento borrado correctamente", Toast.LENGTH_SHORT).show();
                 toggleDeleteLayout();
-                refreshList();
+                refreshMenu();
             }
             else
             {
@@ -115,10 +120,10 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onResume() {
         super.onResume();
-        refreshList();
+        refreshMenu();
     }
 
-    public void refreshList()
+    private void refreshMenu()
     {
         ArrayList<String> productos=menuDAO.verProductos();
         elementos=new String[productos.size()];
@@ -130,21 +135,20 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
             elementos[i]=partes[0];
             precios[i]=partes[1];
         }
-        adaptadorMenu.updateView(elementos, precios);
+        adaptadorMenu.updateMenu(elementos, precios);
         adaptadorMenu.notifyDataSetChanged();
     }
 
-    public void toggleDeleteLayout()
-    {
-        if(deleteLayout.getVisibility()==View.VISIBLE)
-        {
-            deleteLayout.setVisibility(View.GONE);
-        }
-        else
-        {
-            deleteLayout.setVisibility(View.VISIBLE);
+    @Override
+    public void toggleDeleteLayout() {
+
+            if(deleteLayout.getVisibility()==View.VISIBLE)
+            {
+                deleteLayout.setVisibility(View.GONE);
+            }
+            else
+            {
+                deleteLayout.setVisibility(View.VISIBLE);
+            }
         }
     }
-
-
-}

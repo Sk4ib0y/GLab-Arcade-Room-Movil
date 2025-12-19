@@ -13,19 +13,19 @@ import com.example.navigation_drawer_app.Actividades.NoDisponible;
 import com.example.navigation_drawer_app.Clases.SesionManager;
 import com.example.navigation_drawer_app.R;
 
-public class AdaptadorInventario extends BaseAdapter
-{
+public class AdaptadorConsolaPrecio extends BaseAdapter {
+
     Context context;
-    String consola[], observaciones[], estado[];
+    String consola[], jugadores[], precio[];
     int imagencita[];
     LayoutInflater inflater;
     SesionManager sesionManager;
 
-    public AdaptadorInventario(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, LayoutInflater inflater) {
+    public AdaptadorConsolaPrecio(Context context, String[] consola, String[] jugadores, String[] precio, int[] imagencita, LayoutInflater inflater) {
         this.context = context;
         this.consola = consola;
-        this.observaciones = observaciones;
-        this.estado = estado;
+        this.jugadores = jugadores;
+        this.precio = precio;
         this.imagencita = imagencita;
         this.inflater = inflater;
         this.sesionManager=new SesionManager(context);
@@ -48,37 +48,41 @@ public class AdaptadorInventario extends BaseAdapter
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView=inflater.inflate(R.layout.modeloinventario, null);
+        convertView = inflater.inflate(R.layout.modeloconsola, null);
 
         boolean login=sesionManager.isAdmin();
 
-        TextView consolat=convertView.findViewById(R.id.texto);
-        TextView estadot=convertView.findViewById(R.id.estado);
-        TextView observaciont=convertView.findViewById(R.id.observaciones);
+        TextView precioo=convertView.findViewById(R.id.precio);
         ImageView imagen=convertView.findViewById(R.id.icono);
+        TextView nombre= convertView.findViewById(R.id.texto);
+        TextView njugadores=convertView.findViewById(R.id.jugadores);
         ImageView edit=convertView.findViewById(R.id.editar);
-        ImageView borrar=convertView.findViewById(R.id.basura);
+        ImageView basura=convertView.findViewById(R.id.basura);
 
 
         if(!login)
         {
             edit.setVisibility(View.GONE);
-            borrar.setVisibility(View.GONE);
+            basura.setVisibility(View.GONE);
         }
-        else {
-            edit.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
-                context.startActivity(intent);
-            });
-            borrar.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
-                context.startActivity(intent);
-            });
+        else
+        {
+        edit.setOnClickListener(v -> {
+            Intent intent= new Intent(context, NoDisponible.class);
+            context.startActivity(intent);
+                });
+
+        basura.setOnClickListener(v -> {
+            Intent intent= new Intent(context, NoDisponible.class);
+            context.startActivity(intent);
+                });
         }
-        consolat.setText(consola[position]);
-        estadot.setText(estado[position]);
-        observaciont.setText(observaciones[position]);
+
         imagen.setImageResource(imagencita[position]);
+        nombre.setText(consola[position]);
+        precioo.setText(precio[position]);
+        njugadores.setText(jugadores[position]);
+
         return convertView;
     }
 }

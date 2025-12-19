@@ -103,7 +103,7 @@
                     android:layout_marginStart="40dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
-
         </FrameLayout>
+
     </FrameLayout>
 </ScrollView>

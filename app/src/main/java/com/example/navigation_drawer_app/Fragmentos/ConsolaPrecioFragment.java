@@ -14,59 +14,61 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.navigation_drawer_app.Adaptadores.AdaptadorInventario;
 import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Adaptadores.AdaptadorConsolaPrecio;
+import com.example.navigation_drawer_app.Altas.ConsolaAltas;
 import com.example.navigation_drawer_app.Clases.SesionManager;
 import com.example.navigation_drawer_app.R;
 
 
-public class InventarioFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class ConsolaPrecioFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
-    int imagen[]={R.drawable.xbox};
-    String consola[]={"Xbox"}, estado[]={"Disponible"}, observacion[]={"No funciona control"};
-    ImageView mas;
+
     ListView listita;
+    ImageView mas;
     TextView añadir;
+    int icono[]={R.drawable.xbox};
+    String consola[]={"Xbox"}, jugadores[]={"2"}, precio[]={"50"};
     SesionManager sesionManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_inventario, container, false);
+        View view= inflater.inflate(R.layout.fragment_consolas, container, false);
 
-        mas=view.findViewById(R.id.mas);
         añadir=view.findViewById(R.id.añadir);
         listita=view.findViewById(R.id.listita);
-        AdaptadorInventario adaptadorInventario= new AdaptadorInventario(requireContext(), consola, estado, observacion, imagen, getLayoutInflater());
-        listita.setAdapter(adaptadorInventario);
-        mas.setOnClickListener(this);
+        mas=view.findViewById(R.id.mas);
+        AdaptadorConsolaPrecio adaptadorConsolaPrecio = new AdaptadorConsolaPrecio(requireContext(), consola, jugadores, precio, icono, getLayoutInflater() );
+        listita.setAdapter(adaptadorConsolaPrecio);
         listita.setOnItemClickListener(this);
+        mas.setOnClickListener(this);
         sesionManager=new SesionManager(requireContext());
 
         boolean login=sesionManager.isAdmin();
 
-        if (!login)
+        if(!login)
         {
-         añadir.setVisibility(View.GONE);
-         mas.setVisibility(View.GONE);
+            mas.setVisibility(View.GONE);
+            añadir.setVisibility(View.GONE);
         }
-
 
         return view;
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(requireContext(), "La consola es "+consola[position]+  "\nEsta "+estado[position]+"\nalgunas observaciones "+observacion[position], Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onClick(View v) {
-        int id=v.getId();
+        int id= v.getId();
+
         if(id==mas.getId())
         {
             Intent intent= new Intent(requireContext(), NoDisponible.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getContext(), "La consola es "+consola[position]+" pueden jugar "+jugadores[position]+" personas"+ " y cuesta "+precio[position]+" por hora ", Toast.LENGTH_SHORT).show();
     }
 }

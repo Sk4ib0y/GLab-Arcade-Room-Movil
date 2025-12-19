@@ -11,24 +11,31 @@ import android.widget.TextView;
 
 import com.example.navigation_drawer_app.Actividades.NoDisponible;
 import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.Edits.ConsolaEdits;
+import com.example.navigation_drawer_app.Fragmentos.ConsolaFragment;
+import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
 import com.example.navigation_drawer_app.R;
 
-public class AdaptadorConsola extends BaseAdapter {
-
+public class AdaptadorConsola extends BaseAdapter
+{
     Context context;
-    String consola[], jugadores[], precio[];
-    int imagencita[];
+    String consola[], observaciones[], estado[];
+    int imagencita[], id[];
     LayoutInflater inflater;
     SesionManager sesionManager;
+    ConsolaFragment consolaFragment;
 
-    public AdaptadorConsola(Context context, String[] consola, String[] jugadores, String[] precio, int[] imagencita, LayoutInflater inflater) {
+    public AdaptadorConsola(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, int[] id, LayoutInflater inflater, ConsolaFragment consolaFragment) {
+
         this.context = context;
         this.consola = consola;
-        this.jugadores = jugadores;
-        this.precio = precio;
+        this.observaciones = observaciones;
+        this.estado = estado;
         this.imagencita = imagencita;
+        this.id=id;
         this.inflater = inflater;
         this.sesionManager=new SesionManager(context);
+        this.consolaFragment= consolaFragment;
     }
 
     @Override
@@ -48,41 +55,50 @@ public class AdaptadorConsola extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.modeloconsola, null);
+        convertView=inflater.inflate(R.layout.modeloinventario, null);
 
         boolean login=sesionManager.isAdmin();
 
-        TextView precioo=convertView.findViewById(R.id.precio);
+        TextView consolat=convertView.findViewById(R.id.texto);
+        TextView estadot=convertView.findViewById(R.id.estado);
+        TextView observaciont=convertView.findViewById(R.id.observaciones);
         ImageView imagen=convertView.findViewById(R.id.icono);
-        TextView nombre= convertView.findViewById(R.id.texto);
-        TextView njugadores=convertView.findViewById(R.id.jugadores);
         ImageView edit=convertView.findViewById(R.id.editar);
-        ImageView basura=convertView.findViewById(R.id.basura);
+        ImageView borrar=convertView.findViewById(R.id.basura);
 
 
         if(!login)
         {
             edit.setVisibility(View.GONE);
-            basura.setVisibility(View.GONE);
+            borrar.setVisibility(View.GONE);
         }
-        else
-        {
-        edit.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-                });
+        else {
+            edit.setOnClickListener(v -> {
+                Intent intent = new Intent(context, ConsolaEdits.class);
+                intent.putExtra("estado", estado[position]);
+                intent.putExtra("observaciones", observaciones[position]);
+                intent.putExtra("id", id[position]);
+                context.startActivity(intent);
+            });
 
-        basura.setOnClickListener(v -> {
-            Intent intent= new Intent(context, NoDisponible.class);
-            context.startActivity(intent);
-                });
+            borrar.setOnClickListener(v -> {
+                consolaFragment.consolaSeleccionada=position;
+                consolaFragment.toggleDeleteLayout();
+            });
+
         }
-
-        imagen.setImageResource(imagencita[position]);
-        nombre.setText(consola[position]);
-        precioo.setText(precio[position]);
-        njugadores.setText(jugadores[position]);
-
+        consolat.setText(consola[position]);
+        estadot.setText(estado[position]);
+        observaciont.setText(observaciones[position]);
+        imagen.setImageResource(imagencita[0]);
         return convertView;
+    }
+
+    public void UpdateConsolas(String[] nuevaConsola, String[] nuevoEstado, String[] nuevaObs, int[] nuevoId)
+    {
+        this.consola= nuevaConsola;
+        this.estado=nuevoEstado;
+        this.observaciones=nuevaObs;
+        this.id=nuevoId;
     }
 }

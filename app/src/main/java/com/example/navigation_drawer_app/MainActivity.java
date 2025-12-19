@@ -12,9 +12,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import com.example.navigation_drawer_app.Fragmentos.ConsolasFragment;
+import com.example.navigation_drawer_app.Fragmentos.ConsolaPrecioFragment;
 import com.example.navigation_drawer_app.Fragmentos.HomeFragment;
-import com.example.navigation_drawer_app.Fragmentos.InventarioFragment;
+import com.example.navigation_drawer_app.Fragmentos.ConsolaFragment;
 import com.example.navigation_drawer_app.Fragmentos.MapaFragment;
 import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
 import com.example.navigation_drawer_app.Fragmentos.ProfileFragment;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else if(idElemento == R.id.nav_consolas)
             {
-                fragmento=new ConsolasFragment();
+                fragmento=new ConsolaPrecioFragment();
                 titulo=getString(R.string.menu_consolas);
             }
                     else if(idElemento == R.id.nav_videojuegos)
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                     else if (idElemento==R.id.nav_inventario)
             {
-                    fragmento=new InventarioFragment();
+                    fragmento=new ConsolaFragment();
                     titulo=getString(R.string.menu_inventario);
             }
             else {
