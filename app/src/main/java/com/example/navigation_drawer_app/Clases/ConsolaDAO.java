@@ -31,17 +31,6 @@ public class ConsolaDAO
         return db.insert("consola", null, contentValues);
     }
 
-    public boolean existe(String consola)
-    {
-        SQLiteDatabase db=dbHelper.getReadableDatabase();
-        Cursor cursor=db.rawQuery("SELECT id FROM consola WHERE consola=?",
-                new String[]{consola}
-                );
-        boolean existe=cursor.moveToFirst();
-        cursor.close();
-        return existe;
-    }
-
     public ArrayList<String> verConsolas()
     {
         ArrayList<String> lista= new ArrayList<>();
@@ -52,10 +41,10 @@ public class ConsolaDAO
         {
             do {
                 int id=cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-              String consola=cursor.getString(cursor.getColumnIndexOrThrow("Consola"));
-              String estado=cursor.getString(cursor.getColumnIndexOrThrow("Estado"));
-              String observaciones=cursor.getString(cursor.getColumnIndexOrThrow("Observaciones"));
-              lista.add(id+";"+consola+";"+estado+";"+observaciones);
+                String consola=cursor.getString(cursor.getColumnIndexOrThrow("consola"));
+                String estado=cursor.getString(cursor.getColumnIndexOrThrow("estado"));
+                String observaciones=cursor.getString(cursor.getColumnIndexOrThrow("observaciones"));
+                lista.add(id+";"+consola+";"+estado+";"+observaciones);
 
             } while (cursor.moveToNext());
         }
@@ -88,5 +77,28 @@ public class ConsolaDAO
                 new String[]{String.valueOf(id)}
         );
         return rows > 0;
+    }
+
+    public ArrayList<String> verConsolasSinPrecio()
+    {
+        ArrayList<String>lista=new ArrayList<>();
+        SQLiteDatabase db=dbHelper.getReadableDatabase();
+        String sql=    "SELECT c.id, c.consola, c.estado, c.observaciones " +
+                "FROM consola c " +
+                "LEFT JOIN consola_precio cp ON c.id = cp.consola_id " +
+                "WHERE cp.id IS NULL";
+        Cursor cursor= db.rawQuery(sql, null);
+        if(cursor.moveToFirst())
+        {
+            do {
+                int id=cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+                String consola=cursor.getString(cursor.getColumnIndexOrThrow("consola"));
+                String estado=cursor.getString(cursor.getColumnIndexOrThrow("estado"));
+                String observaciones=cursor.getString(cursor.getColumnIndexOrThrow("observaciones"));
+                lista.add(id+";"+consola+";"+estado+";"+observaciones);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return lista;
     }
 }

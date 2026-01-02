@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation_Drawer_App">
         <activity
+            android:name=".Edits.ConsolaPrecioEdits"
+            android:exported="false" />
+        <activity
+            android:name=".Altas.ConsolaPrecioAltas"
+            android:exported="false" />
+        <activity
             android:name=".Edits.ConsolaEdits"
             android:exported="false" />
         <activity

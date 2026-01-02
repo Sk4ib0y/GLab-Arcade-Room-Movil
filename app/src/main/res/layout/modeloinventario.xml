@@ -92,12 +92,14 @@
             android:layout_height="40dp"
             android:layout_marginTop="6sp"
             android:src="@drawable/editar"
+            android:visibility="invisible"
             android:id="@+id/editar"/>
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="40dp"
             android:layout_marginTop="6sp"
+            android:visibility="invisible"
             android:src="@drawable/basurita"
             android:id="@+id/basura"/>
     </LinearLayout>

@@ -21,13 +21,15 @@ import com.example.navigation_drawer_app.Actividades.NoDisponible;
 import com.example.navigation_drawer_app.Altas.ConsolaAltas;
 import com.example.navigation_drawer_app.Clases.ConsolaDAO;
 import com.example.navigation_drawer_app.Clases.FragmentActions;
+import com.example.navigation_drawer_app.Clases.Listener;
 import com.example.navigation_drawer_app.Clases.SesionManager;
+import com.example.navigation_drawer_app.Edits.ConsolaEdits;
 import com.example.navigation_drawer_app.R;
 
 import java.util.ArrayList;
 
 
-public class ConsolaFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener, FragmentActions {
+public class ConsolaFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener, FragmentActions, Listener {
 
     int imagen[]={R.drawable.xbox};
     String consola[], estado[], observacion[];
@@ -40,6 +42,7 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
     Button cancelar, eliminar;
     AdaptadorConsola adaptadorConsola;
     ConsolaDAO consolaDAO;
+    Listener listener;
     public int consolaSeleccionada=-1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,8 +66,9 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
         estado=new String[0];
         observacion=new String[0];
 
+        listener=this;
 
-        adaptadorConsola = new AdaptadorConsola(requireContext(), consola, estado, observacion, imagen, ids, getLayoutInflater(), this);
+        adaptadorConsola = new AdaptadorConsola(requireContext(), consola, observacion, estado, imagen, ids, getLayoutInflater(), listener, true);
         listita.setAdapter(adaptadorConsola);
         refreshConsolas();
 
@@ -84,7 +88,7 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(requireContext(), "La consola es "+consola[position]+  "\nEsta "+estado[position]+"\nalgunas observaciones "+observacion[position], Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "La consolaprecio es "+consola[position]+  "\nEsta "+estado[position]+"\nalgunas observaciones "+observacion[position], Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -106,19 +110,19 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
 
             if (borrado)
             {
-                Toast.makeText(requireContext(), "La consola fue borrada correctamente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "La consolaprecio fue borrada correctamente", Toast.LENGTH_SHORT).show();
                 toggleDeleteLayout();
                 refreshConsolas();
             }
             else
             {
-                Toast.makeText(requireContext(), "Error al borrar la consola", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Error al borrar la consolaprecio", Toast.LENGTH_SHORT).show();
             }
         }
 
     }
 
-    private void refreshConsolas()
+    public void refreshConsolas()
     {
         ArrayList<String> consolas=consolaDAO.verConsolas();
 
@@ -155,6 +159,20 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
         {
             deleteLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onEditar(int position) {
+        Intent intent = new Intent(requireContext(), ConsolaEdits.class);
+        intent.putExtra("estado", estado[position]);
+        intent.putExtra("observaciones", observacion[position]);
+        intent.putExtra("id", ids[position]);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBorrar(int position) {
+        toggleDeleteLayout();
     }
 
 

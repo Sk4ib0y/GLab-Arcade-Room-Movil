@@ -1,7 +1,6 @@
 package com.example.navigation_drawer_app.Adaptadores;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.FragmentActions;
+import com.example.navigation_drawer_app.Clases.Listener;
 import com.example.navigation_drawer_app.Clases.SesionManager;
-import com.example.navigation_drawer_app.Edits.ConsolaEdits;
-import com.example.navigation_drawer_app.Fragmentos.ConsolaFragment;
-import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
 import com.example.navigation_drawer_app.R;
 
 public class AdaptadorConsola extends BaseAdapter
@@ -23,9 +20,9 @@ public class AdaptadorConsola extends BaseAdapter
     int imagencita[], id[];
     LayoutInflater inflater;
     SesionManager sesionManager;
-    ConsolaFragment consolaFragment;
-
-    public AdaptadorConsola(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, int[] id, LayoutInflater inflater, ConsolaFragment consolaFragment) {
+    Listener listener;
+    boolean edicion;
+    public AdaptadorConsola(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, int[] id, LayoutInflater inflater, Listener listener, boolean edicion) {
 
         this.context = context;
         this.consola = consola;
@@ -35,7 +32,8 @@ public class AdaptadorConsola extends BaseAdapter
         this.id=id;
         this.inflater = inflater;
         this.sesionManager=new SesionManager(context);
-        this.consolaFragment= consolaFragment;
+        this.listener= listener;
+        this.edicion=edicion;
     }
 
     @Override
@@ -67,26 +65,19 @@ public class AdaptadorConsola extends BaseAdapter
         ImageView borrar=convertView.findViewById(R.id.basura);
 
 
-        if(!login)
+        if(login && edicion && listener!=null)
+        {
+            edit.setVisibility(View.VISIBLE);
+            borrar.setVisibility(View.VISIBLE);
+            edit.setOnClickListener(v -> listener.onEditar(position));
+            borrar.setOnClickListener(v -> listener.onBorrar(position));
+        }
+        else
         {
             edit.setVisibility(View.GONE);
             borrar.setVisibility(View.GONE);
         }
-        else {
-            edit.setOnClickListener(v -> {
-                Intent intent = new Intent(context, ConsolaEdits.class);
-                intent.putExtra("estado", estado[position]);
-                intent.putExtra("observaciones", observaciones[position]);
-                intent.putExtra("id", id[position]);
-                context.startActivity(intent);
-            });
 
-            borrar.setOnClickListener(v -> {
-                consolaFragment.consolaSeleccionada=position;
-                consolaFragment.toggleDeleteLayout();
-            });
-
-        }
         consolat.setText(consola[position]);
         estadot.setText(estado[position]);
         observaciont.setText(observaciones[position]);
@@ -100,5 +91,6 @@ public class AdaptadorConsola extends BaseAdapter
         this.estado=nuevoEstado;
         this.observaciones=nuevaObs;
         this.id=nuevoId;
+        notifyDataSetChanged();
     }
 }

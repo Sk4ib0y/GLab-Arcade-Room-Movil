@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class Base extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "g_lab_arcade.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     private static final String CREATE_CONSOLA =
             "CREATE TABLE consola (" +
@@ -37,14 +37,6 @@ public class Base extends SQLiteOpenHelper {
                     "FOREIGN KEY (consola_id) REFERENCES consola(id)" +
                     ");";
 
-    private static final String CREATE_CONSOLA_HAS_VIDEOJUEGO =
-            "CREATE TABLE consola_has_videojuego (" +
-                    "consola_id INTEGER NOT NULL," +
-                    "videojuego_id INTEGER NOT NULL," +
-                    "PRIMARY KEY (consola_id, videojuego_id)," +
-                    "FOREIGN KEY (consola_id) REFERENCES consola(id)," +
-                    "FOREIGN KEY (videojuego_id) REFERENCES videojuego(id)" +
-                    ");";
 
     private static final String CREATE_USUARIO =
             "CREATE TABLE usuario (" +
@@ -81,12 +73,10 @@ public class Base extends SQLiteOpenHelper {
         db.execSQL(CREATE_USUARIO);
         db.execSQL(CREATE_MENU);
         db.execSQL(CREATE_CONSOLA_PRECIO);
-        db.execSQL(CREATE_CONSOLA_HAS_VIDEOJUEGO);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS consola_has_videojuego");
         db.execSQL("DROP TABLE IF EXISTS consola_precio");
         db.execSQL("DROP TABLE IF EXISTS videojuego");
         db.execSQL("DROP TABLE IF EXISTS consola");
