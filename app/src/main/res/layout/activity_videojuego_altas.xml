@@ -1,0 +1,160 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:fillViewport="true"
+    tools:context=".Altas.VideojuegoAltas">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/atras"
+                android:src="@drawable/atras"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="80dp"
+                android:text="Alta de\nVideojuego"
+                android:textColor="#00FFFF"
+                android:shadowRadius="10"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:shadowColor="#00FFFF"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="@drawable/recuadros">
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="80dp"
+                android:text="Nombre"
+                android:textColor="#00FFFF"
+                android:layout_marginStart="20dp"
+                android:gravity="center_vertical"
+                android:shadowRadius="10"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:shadowColor="#00FFFF"/>
+            <EditText
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/nombre"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="Genero"
+                android:layout_marginStart="20dp"
+                android:textColor="#00FFFF"
+                android:gravity="center_vertical"
+                android:shadowRadius="10"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:shadowColor="#00FFFF"/>
+
+            <EditText
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/genero"/>
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Plataforma"
+                android:layout_marginStart="20dp"
+                android:textColor="#00FFFF"
+                android:gravity="center_vertical"
+                android:shadowRadius="10"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:shadowColor="#00FFFF"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rgPlataforma"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xbox"
+                    android:id="@+id/xbox"
+                    android:textColor="#00FFFF"
+                    android:textSize="15sp"
+                    android:shadowColor="#00FFFF"
+                    android:shadowRadius="10"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PlayStation"
+                    android:id="@+id/playstation"
+                    android:textColor="#00FFFF"
+                    android:textSize="15sp"
+                    android:shadowColor="#00FFFF"
+                    android:shadowRadius="10"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nintendo"
+                    android:id="@+id/nintendo"
+                    android:textColor="#00FFFF"
+                    android:textSize="15sp"
+                    android:shadowColor="#00FFFF"
+                    android:shadowRadius="10"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PC"
+                    android:id="@+id/pc"
+                    android:textColor="#00FFFF"
+                    android:textSize="15sp"
+                    android:shadowColor="#00FFFF"
+                    android:shadowRadius="10"/>
+            </RadioGroup>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botones"
+                android:text="Añadir Videojuego"
+                android:textSize="28dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                app:backgroundTint="@null"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/añadir"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

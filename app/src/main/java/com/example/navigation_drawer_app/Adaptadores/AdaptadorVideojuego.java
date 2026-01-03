@@ -10,25 +10,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.Listener;
 import com.example.navigation_drawer_app.Clases.SesionManager;
 import com.example.navigation_drawer_app.R;
 
-public class AdaptadorVideojuego extends BaseAdapter
+public class AdaptadorVideojuego extends BaseAdapter implements Listener
 {
     Context context;
     String videojuego[], genero[], plataforma[];
-    int imagencita[];
+    int imagencita[], ids[];
     LayoutInflater inflater;
     SesionManager sesionManager;
-
-    public AdaptadorVideojuego(Context context, String[] videojuego, String[] genero, String[] plataforma, int[] imagencita, LayoutInflater inflater) {
+    Listener listener;
+    public AdaptadorVideojuego(Context context, String[] videojuego, String[] genero, String[] plataforma, int[] imagencita, int[] ids, LayoutInflater inflater, Listener listener) {
         this.context = context;
         this.videojuego = videojuego;
         this.genero = genero;
         this.plataforma = plataforma;
         this.imagencita = imagencita;
+        this.ids=ids;
         this.inflater = inflater;
         this.sesionManager=new SesionManager(context);
+        this.listener=listener;
     }
 
     @Override
@@ -66,21 +69,37 @@ public class AdaptadorVideojuego extends BaseAdapter
             basura.setVisibility(View.GONE);
         }
         else {
-            edit.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
-                context.startActivity(intent);
+            edit.setOnClickListener(v -> {listener.onEditar(position);
             });
 
-            basura.setOnClickListener(v -> {
-                Intent intent = new Intent(context, NoDisponible.class);
-                context.startActivity(intent);
+            basura.setOnClickListener(v -> {listener.onBorrar(position);
             });
 
         }
         nombre.setText(videojuego[position]);
         generot.setText(genero[position]);
         plataformat.setText(plataforma[position]);
-        imagenv.setImageResource(imagencita[position]);
+        imagenv.setImageResource(R.drawable.halo);
         return convertView;
+    }
+
+    public void UpdateVideojuego(String[] nuevoVideojuego, String[] nuevoGenero, String[] nuevaPlataforma, int[] nuevoId, int[] nuevaImagen)
+    {
+        this.videojuego=nuevoVideojuego;
+        this.genero=nuevoGenero;
+        this.plataforma=nuevaPlataforma;
+        this.ids=nuevoId;
+        this.imagencita=nuevaImagen;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public void onEditar(int position) {
+
+    }
+
+    @Override
+    public void onBorrar(int position) {
+
     }
 }

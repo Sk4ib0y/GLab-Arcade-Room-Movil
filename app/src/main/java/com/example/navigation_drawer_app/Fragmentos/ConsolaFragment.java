@@ -110,13 +110,13 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
 
             if (borrado)
             {
-                Toast.makeText(requireContext(), "La consolaprecio fue borrada correctamente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "El precio de la consola fue borrado correctamente", Toast.LENGTH_SHORT).show();
                 toggleDeleteLayout();
                 refreshConsolas();
             }
             else
             {
-                Toast.makeText(requireContext(), "Error al borrar la consolaprecio", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Error al borrar el precio", Toast.LENGTH_SHORT).show();
             }
         }
 

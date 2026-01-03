@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class Base extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "g_lab_arcade.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     private static final String CREATE_CONSOLA =
             "CREATE TABLE consola (" +
@@ -23,7 +23,6 @@ public class Base extends SQLiteOpenHelper {
             "CREATE TABLE videojuego (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "nombre TEXT NOT NULL," +
-                    "imagen TEXT," +
                     "genero TEXT," +
                     "plataforma TEXT" +
                     ");";

@@ -49,7 +49,6 @@ public class ConsolaAltas extends AppCompatActivity implements View.OnClickListe
         if(atras.getId()==id)
         {
             finish();
-            return;
         }
         else if(añadir.getId()==id)
         {
