@@ -12,7 +12,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Navigation_Drawer_App">
         <activity
-            android:name=".NoDisponible"
+            android:name=".Edits.VideojuegoEdits"
+            android:exported="false" />
+        <activity
+            android:name=".Altas.VideojuegoAltas"
+            android:exported="false" />
+        <activity
+            android:name=".Edits.ConsolaPrecioEdits"
+            android:exported="false" />
+        <activity
+            android:name=".Altas.ConsolaPrecioAltas"
+            android:exported="false" />
+        <activity
+            android:name=".Edits.ConsolaEdits"
+            android:exported="false" />
+        <activity
+            android:name=".Altas.ConsolaAltas"
+            android:exported="false" />
+        <activity
+            android:name=".Altas.MenuAltas"
+            android:exported="false" />
+        <activity
+            android:name=".Actividades.NoDisponible"
+            android:exported="false" />
+        <activity
+            android:name=".Edits.MenuEdits"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

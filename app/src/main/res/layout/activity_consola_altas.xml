@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:fillViewport="true"
+    tools:context=".Altas.ConsolaAltas">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/atras"
+            android:src="@drawable/atras"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="80dp"
+            android:text="Alta de\nConsola"
+            android:textColor="#00FFFF"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:background="@drawable/recuadros">
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Consola"
+            android:layout_marginStart="20dp"
+            android:textColor="#00FFFF"
+            android:gravity="center_vertical"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgConsola"
+            android:layout_marginStart="20dp"
+            android:orientation="vertical">
+            
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xbox One"
+                android:id="@+id/xboxone"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xbox Series S"
+                android:id="@+id/xboxs"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xbox Series X"
+                android:id="@+id/xboxx"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PS4"
+                android:id="@+id/ps4"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PS5"
+                android:id="@+id/ps5"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nintendo Switch"
+                android:id="@+id/switch1"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nintendo Switch 2"
+                android:id="@+id/switch2"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PC"
+                android:id="@+id/pc"
+                android:textColor="#00FFFF"
+                android:textSize="15sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:text="Estado"
+            android:textColor="#00FFFF"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:shadowRadius="10"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgEstado"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponible"
+                android:id="@+id/disponible"
+                android:textColor="#00FFFF"
+                android:textSize="12sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En Uso"
+                android:id="@+id/enuso"
+                android:textColor="#00FFFF"
+                android:textSize="12sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En Reparacion"
+                android:id="@+id/enuso"
+                android:textColor="#00FFFF"
+                android:textSize="12sp"
+                android:shadowColor="#00FFFF"
+                android:shadowRadius="10"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Observaciones (Si tiene)"
+            android:layout_marginStart="20dp"
+            android:textColor="#00FFFF"
+            android:gravity="center_vertical"
+            android:shadowRadius="10"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:shadowColor="#00FFFF"/>
+
+        <EditText
+            android:layout_width="275dp"
+            android:layout_height="200dp"
+            android:background="@drawable/advertencia"
+            android:textColor="#00FFFF"
+            android:textSize="20dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/observaciones"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/botones"
+            android:text="Añadir Consola"
+            android:textSize="28dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            app:backgroundTint="@null"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/añadir"/>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

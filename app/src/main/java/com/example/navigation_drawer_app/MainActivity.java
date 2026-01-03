@@ -12,6 +12,13 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.navigation_drawer_app.Fragmentos.ConsolaPrecioFragment;
+import com.example.navigation_drawer_app.Fragmentos.HomeFragment;
+import com.example.navigation_drawer_app.Fragmentos.ConsolaFragment;
+import com.example.navigation_drawer_app.Fragmentos.MapaFragment;
+import com.example.navigation_drawer_app.Fragmentos.MenuFragment;
+import com.example.navigation_drawer_app.Fragmentos.ProfileFragment;
+import com.example.navigation_drawer_app.Fragmentos.VideojuegosFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -57,7 +64,29 @@ public class MainActivity extends AppCompatActivity {
             } else if (idElemento == R.id.nav_settings) {
                 fragmento = new MapaFragment();
                 titulo = getString(R.string.menu_settings);
-            } else {
+            }
+            else if(idElemento == R.id.nav_menucomida)
+            {
+                fragmento=new MenuFragment();
+                titulo=getString(R.string.menu_comida);
+            }
+            else if(idElemento == R.id.nav_consolas)
+            {
+                fragmento=new ConsolaPrecioFragment();
+                titulo=getString(R.string.menu_consolas);
+            }
+                    else if(idElemento == R.id.nav_videojuegos)
+            {
+                fragmento=new VideojuegosFragment();
+                titulo=getString(R.string.menu_videojuegos);
+            }
+
+                    else if (idElemento==R.id.nav_inventario)
+            {
+                    fragmento=new ConsolaFragment();
+                    titulo=getString(R.string.menu_inventario);
+            }
+            else {
                 fragmento = new HomeFragment();
                 titulo = getString(R.string.menu_home);
             }

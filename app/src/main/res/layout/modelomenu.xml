@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="345dp"
+    android:background="@drawable/recuadros"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="100dp">
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_gravity="center_vertical"
+    android:src="@drawable/glab"/>
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:text="e"
+        android:gravity="center_vertical"
+        android:textColor="#00FFFF"
+        android:shadowColor="#00FFFF"
+        android:shadowRadius="10"
+        android:textSize="20dp"
+        android:id="@+id/texto"
+        android:layout_gravity="center_vertical"/>
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/precio"
+        android:textColor="#00FFFF"
+        android:shadowColor="#00FFFF"
+        android:shadowRadius="10"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:textSize="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="6sp"
+            android:src="@drawable/editar"
+            android:id="@+id/editar"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="6sp"
+            android:src="@drawable/basurita"
+            android:id="@+id/basura"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
