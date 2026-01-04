@@ -79,7 +79,61 @@ public class AdaptadorVideojuego extends BaseAdapter implements Listener
         nombre.setText(videojuego[position]);
         generot.setText(genero[position]);
         plataformat.setText(plataforma[position]);
-        imagenv.setImageResource(R.drawable.halo);
+
+        String nombreVideojuego=videojuego[position].toLowerCase();
+
+        if(nombreVideojuego.contains("halo"))
+        {
+            imagenv.setImageResource(R.drawable.halo);
+        }
+        else if(nombreVideojuego.contains("fifa"))
+        {
+            imagenv.setImageResource(R.drawable.fifa);
+        }
+        else if(nombreVideojuego.contains("call of duty") || nombreVideojuego.contains("Cod"))
+        {
+            imagenv.setImageResource(R.drawable.cod);
+        }
+        else if(nombreVideojuego.contains("gta") || nombreVideojuego.contains("grand theft auto"))
+        {
+            imagenv.setImageResource(R.drawable.gta);
+        }
+        else if(nombreVideojuego.contains("minecraft"))
+        {
+            imagenv.setImageResource(R.drawable.minecraft);
+        }
+
+        else if(nombreVideojuego.contains("fortnite"))
+        {
+            imagenv.setImageResource(R.drawable.fortnite);
+        }
+        else if(nombreVideojuego.contains("zelda"))
+        {
+            imagenv.setImageResource(R.drawable.zelda);
+        } else if(nombreVideojuego.contains("kart"))
+        {
+            imagenv.setImageResource(R.drawable.mariokart);
+        }
+        else if(nombreVideojuego.contains("god of war"))
+        {
+            imagenv.setImageResource(R.drawable.gordowar);
+        }
+        else if(nombreVideojuego.contains("resident evil"))
+        {
+            imagenv.setImageResource(R.drawable.residentemalo);
+        }
+        else if(nombreVideojuego.contains("call of gruty"))
+        {
+            imagenv.setImageResource(R.drawable.callogfruty);
+        }
+        else {
+            imagenv.setImageResource(R.drawable.glab);
+        }
+
+
+
+
+
         return convertView;
     }
 

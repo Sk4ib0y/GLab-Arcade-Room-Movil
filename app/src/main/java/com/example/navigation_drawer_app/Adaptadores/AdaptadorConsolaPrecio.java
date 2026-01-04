@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.navigation_drawer_app.Actividades.NoDisponible;
+import com.example.navigation_drawer_app.Clases.Clasesita;
 import com.example.navigation_drawer_app.Clases.Listener;
 import com.example.navigation_drawer_app.Clases.SesionManager;
 import com.example.navigation_drawer_app.R;
@@ -21,6 +22,7 @@ public class AdaptadorConsolaPrecio extends BaseAdapter {
     int imagencita[], ids[];
     LayoutInflater inflater;
     SesionManager sesionManager;
+    Clasesita clasesita;
     Listener listener;
 
     public AdaptadorConsolaPrecio(Context context, String[] consola, String[] jugadores, String[] precio, int[] imagencita, int[] ids, LayoutInflater inflater, Listener listener) {
@@ -61,6 +63,7 @@ public class AdaptadorConsolaPrecio extends BaseAdapter {
         TextView nombre = convertView.findViewById(R.id.texto);
         TextView njugadores = convertView.findViewById(R.id.jugadores);
         ImageView edit = convertView.findViewById(R.id.editar);
+        clasesita=new Clasesita();
         ImageView basura = convertView.findViewById(R.id.basura);
 
 
@@ -74,11 +77,12 @@ public class AdaptadorConsolaPrecio extends BaseAdapter {
             basura.setOnClickListener(v -> listener.onBorrar(position));
         }
 
-        imagen.setImageResource(imagencita[0]);
         nombre.setText(consola[position]);
         precioo.setText(precio[position]);
         njugadores.setText(jugadores[position]);
 
+        String nombreConsola=consola[position];
+        clasesita.selectImagen(nombreConsola, imagen);
         return convertView;
     }
 

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.navigation_drawer_app.Clases.Clasesita;
 import com.example.navigation_drawer_app.Clases.FragmentActions;
 import com.example.navigation_drawer_app.Clases.Listener;
 import com.example.navigation_drawer_app.Clases.SesionManager;
@@ -21,6 +22,7 @@ public class AdaptadorConsola extends BaseAdapter
     LayoutInflater inflater;
     SesionManager sesionManager;
     Listener listener;
+    Clasesita clasesita;
     boolean edicion;
     public AdaptadorConsola(Context context, String[] consola, String[] observaciones, String[] estado, int[] imagencita, int[] id, LayoutInflater inflater, Listener listener, boolean edicion) {
 
@@ -63,6 +65,8 @@ public class AdaptadorConsola extends BaseAdapter
         ImageView imagen=convertView.findViewById(R.id.icono);
         ImageView edit=convertView.findViewById(R.id.editar);
         ImageView borrar=convertView.findViewById(R.id.basura);
+        clasesita=new Clasesita();
+
 
 
         if(login && edicion && listener!=null)
@@ -78,10 +82,13 @@ public class AdaptadorConsola extends BaseAdapter
             borrar.setVisibility(View.GONE);
         }
 
+        String nombreConsola=consola[position];
+
         consolat.setText(consola[position]);
         estadot.setText(estado[position]);
         observaciont.setText(observaciones[position]);
-        imagen.setImageResource(imagencita[0]);
+
+        clasesita.selectImagen(nombreConsola,imagen);
         return convertView;
     }
 

@@ -137,10 +137,15 @@ public class ConsolaFragment extends Fragment implements AdapterView.OnItemClick
             ids[i]=Integer.parseInt(partes[0]);
             consola[i]=partes[1];
             estado[i]=partes[2];
-            observacion[i]=partes[3];
+
+            if(partes.length>3) {
+                observacion[i] = partes[3];
+            }
+            else {
+                observacion[i]="Sin observaciones";
+            }
         }
         adaptadorConsola.UpdateConsolas(consola,estado,observacion, ids);
-        adaptadorConsola.notifyDataSetChanged();
     }
 
     @Override
