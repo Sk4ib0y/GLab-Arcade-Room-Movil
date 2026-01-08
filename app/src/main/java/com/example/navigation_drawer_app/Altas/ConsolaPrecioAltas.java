@@ -75,7 +75,11 @@ public class ConsolaPrecioAltas extends AppCompatActivity implements View.OnClic
             ids[i]=Integer.parseInt(partes[0]);
             consola[i]=partes[1];
             estado[i]=partes[2];
-            observaciones[i]=partes[3];
+            if(partes.length>3)
+            {
+                observaciones[i]=partes[3];
+            }
+            else observaciones[i]="Sin observaciones";
             imagen[i]=R.drawable.xbox;
         }
 

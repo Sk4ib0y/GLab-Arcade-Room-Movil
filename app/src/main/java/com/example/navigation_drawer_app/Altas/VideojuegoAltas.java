@@ -73,7 +73,8 @@ public class VideojuegoAltas extends AppCompatActivity implements View.OnClickLi
             String plataforma=selectedPlataformaRB.getText().toString().trim();
 
             videojuegoDAO.insertarVideojuego(nombreS, generoS, plataforma);
-
+            Toast.makeText(this, "Videojuego añadido correctamente!", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 }
